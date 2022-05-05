@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../text_styles/app_text_styles.dart';
+
 class DefaultAppBar extends StatelessWidget with PreferredSizeWidget {
   final String titleText;
   final List<Widget>? action;
@@ -23,10 +25,7 @@ class DefaultAppBar extends StatelessWidget with PreferredSizeWidget {
       child: AppBar(
         title: Text(
           titleText,
-          style: const TextStyle(
-            color: Colors.black,
-            fontSize: 14,
-          ),
+          style: AppTextStyle.timesNewRomanW700S22.copyWith(color: Colors.black),
         ),
         centerTitle: true,
         leading: canPop ? const BackButton() : null,

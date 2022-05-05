@@ -4,6 +4,7 @@ import 'package:weather_app/common_components/app_bars/default_app_bar.dart';
 import 'package:weather_app/common_components/text_styles/app_text_styles.dart';
 import 'package:weather_app/features/three_days_weather_page/presentation/screen/three_days_weather_screen.dart';
 
+import '../../../../gen/assets.gen.dart';
 import '../../domain/state/today_weather_cubit.dart';
 import '../../domain/state/today_weather_state.dart';
 
@@ -37,7 +38,7 @@ class TodayWeatherScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  icon: const Icon(Icons.add_chart),
+                  icon: Assets.icons.iconTransition.svg(),
                 )
               ],
             ),
@@ -85,17 +86,17 @@ class TodayWeatherScreen extends StatelessWidget {
                           ),
                           const SizedBox(height: 20),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 70),
+                            padding: const EdgeInsets.symmetric(horizontal: 72),
                             child: Row(
                               children: [
-                                const Icon(Icons.accessibility_rounded),
+                                Assets.icons.iconUp.svg(width: 20,height: 20),
                                 const SizedBox(width: 4),
                                 Text(
                                   "${state.myWeatherEntity?.main?.tempMax}°C",
                                   style: AppTextStyle.timesNewRomanW700S22,
                                 ),
                                 const SizedBox(width: 8),
-                                const Icon(Icons.ac_unit_outlined),
+                                Assets.icons.iconDown.svg(width: 22,height: 22),
                                 const SizedBox(width: 4),
                                 Text(
                                   "${state.myWeatherEntity?.main?.tempMin}°C",

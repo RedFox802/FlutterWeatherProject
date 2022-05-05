@@ -10,8 +10,10 @@ _$_TodayWeatherState _$$_TodayWeatherStateFromJson(Map<String, dynamic> json) =>
     _$_TodayWeatherState(
       loading: json['loading'] as bool? ?? false,
       error: json['error'] as bool? ?? false,
-      myWeatherEntity: MyWeatherEntity.fromJson(
-          json['myWeatherEntity'] as Map<String, dynamic>),
+      myWeatherEntity: json['myWeatherEntity'] == null
+          ? null
+          : MyWeatherEntity.fromJson(
+              json['myWeatherEntity'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_TodayWeatherStateToJson(

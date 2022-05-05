@@ -23,8 +23,11 @@ class TodayWeatherCubit extends Cubit<TodayWeatherState> {
     emit(state.copyWith(loading: true));
 
     try {
-      var url = Uri.https('api.openweathermap.org', '/data/2.5/weather',
-          {'q': '${city},ru', 'appid': '1b44d0a180da7320f88afc5d0ca955b3'});
+      var url = Uri.https('api.openweathermap.org', '/data/2.5/weather', {
+        'q': '${city},ru',
+        'units': 'metric',
+        'appid': '1b44d0a180da7320f88afc5d0ca955b3',
+      });
 
       var response = await http.get(url);
       emit(state.copyWith(loading: false));

@@ -9,6 +9,7 @@ class ChooseCityScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormBuilderState>();
+    String _city;
     return Scaffold(
       body: FormBuilder(
         key: _formKey,
@@ -49,11 +50,12 @@ class ChooseCityScreen extends StatelessWidget {
                   _formKey.currentState?.validate();
                   if (_formKey.currentState?.validate() ?? false) {
                     _formKey.currentState!.save();
+                    _city=_formKey.currentState!.value['city'];
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (BuildContext context) {
-                          return const TodayWeatherScreen();
+                          return TodayWeatherScreen( city: _city,);
                         },
                       ),
                     );

@@ -22,7 +22,7 @@ TodayWeatherState _$TodayWeatherStateFromJson(Map<String, dynamic> json) {
 mixin _$TodayWeatherState {
   bool get loading => throw _privateConstructorUsedError;
   bool get error => throw _privateConstructorUsedError;
-  WeatherEntity get weatherEntity => throw _privateConstructorUsedError;
+  MyWeatherEntity? get myWeatherEntity => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,9 +35,7 @@ abstract class $TodayWeatherStateCopyWith<$Res> {
   factory $TodayWeatherStateCopyWith(
           TodayWeatherState value, $Res Function(TodayWeatherState) then) =
       _$TodayWeatherStateCopyWithImpl<$Res>;
-  $Res call({bool loading, bool error, WeatherEntity weatherEntity});
-
-  $WeatherEntityCopyWith<$Res> get weatherEntity;
+  $Res call({bool loading, bool error, MyWeatherEntity? myWeatherEntity});
 }
 
 /// @nodoc
@@ -53,7 +51,7 @@ class _$TodayWeatherStateCopyWithImpl<$Res>
   $Res call({
     Object? loading = freezed,
     Object? error = freezed,
-    Object? weatherEntity = freezed,
+    Object? myWeatherEntity = freezed,
   }) {
     return _then(_value.copyWith(
       loading: loading == freezed
@@ -64,18 +62,11 @@ class _$TodayWeatherStateCopyWithImpl<$Res>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as bool,
-      weatherEntity: weatherEntity == freezed
-          ? _value.weatherEntity
-          : weatherEntity // ignore: cast_nullable_to_non_nullable
-              as WeatherEntity,
+      myWeatherEntity: myWeatherEntity == freezed
+          ? _value.myWeatherEntity
+          : myWeatherEntity // ignore: cast_nullable_to_non_nullable
+              as MyWeatherEntity?,
     ));
-  }
-
-  @override
-  $WeatherEntityCopyWith<$Res> get weatherEntity {
-    return $WeatherEntityCopyWith<$Res>(_value.weatherEntity, (value) {
-      return _then(_value.copyWith(weatherEntity: value));
-    });
   }
 }
 
@@ -86,10 +77,7 @@ abstract class _$TodayWeatherStateCopyWith<$Res>
           _TodayWeatherState value, $Res Function(_TodayWeatherState) then) =
       __$TodayWeatherStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool loading, bool error, WeatherEntity weatherEntity});
-
-  @override
-  $WeatherEntityCopyWith<$Res> get weatherEntity;
+  $Res call({bool loading, bool error, MyWeatherEntity? myWeatherEntity});
 }
 
 /// @nodoc
@@ -107,7 +95,7 @@ class __$TodayWeatherStateCopyWithImpl<$Res>
   $Res call({
     Object? loading = freezed,
     Object? error = freezed,
-    Object? weatherEntity = freezed,
+    Object? myWeatherEntity = freezed,
   }) {
     return _then(_TodayWeatherState(
       loading: loading == freezed
@@ -118,10 +106,10 @@ class __$TodayWeatherStateCopyWithImpl<$Res>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as bool,
-      weatherEntity: weatherEntity == freezed
-          ? _value.weatherEntity
-          : weatherEntity // ignore: cast_nullable_to_non_nullable
-              as WeatherEntity,
+      myWeatherEntity: myWeatherEntity == freezed
+          ? _value.myWeatherEntity
+          : myWeatherEntity // ignore: cast_nullable_to_non_nullable
+              as MyWeatherEntity?,
     ));
   }
 }
@@ -130,7 +118,9 @@ class __$TodayWeatherStateCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TodayWeatherState implements _TodayWeatherState {
   const _$_TodayWeatherState(
-      {this.loading = false, this.error = false, required this.weatherEntity});
+      {this.loading = false,
+      this.error = false,
+      required this.myWeatherEntity});
 
   factory _$_TodayWeatherState.fromJson(Map<String, dynamic> json) =>
       _$$_TodayWeatherStateFromJson(json);
@@ -142,11 +132,11 @@ class _$_TodayWeatherState implements _TodayWeatherState {
   @JsonKey()
   final bool error;
   @override
-  final WeatherEntity weatherEntity;
+  final MyWeatherEntity? myWeatherEntity;
 
   @override
   String toString() {
-    return 'TodayWeatherState(loading: $loading, error: $error, weatherEntity: $weatherEntity)';
+    return 'TodayWeatherState(loading: $loading, error: $error, myWeatherEntity: $myWeatherEntity)';
   }
 
   @override
@@ -157,7 +147,7 @@ class _$_TodayWeatherState implements _TodayWeatherState {
             const DeepCollectionEquality().equals(other.loading, loading) &&
             const DeepCollectionEquality().equals(other.error, error) &&
             const DeepCollectionEquality()
-                .equals(other.weatherEntity, weatherEntity));
+                .equals(other.myWeatherEntity, myWeatherEntity));
   }
 
   @JsonKey(ignore: true)
@@ -166,7 +156,7 @@ class _$_TodayWeatherState implements _TodayWeatherState {
       runtimeType,
       const DeepCollectionEquality().hash(loading),
       const DeepCollectionEquality().hash(error),
-      const DeepCollectionEquality().hash(weatherEntity));
+      const DeepCollectionEquality().hash(myWeatherEntity));
 
   @JsonKey(ignore: true)
   @override
@@ -183,7 +173,7 @@ abstract class _TodayWeatherState implements TodayWeatherState {
   const factory _TodayWeatherState(
       {final bool loading,
       final bool error,
-      required final WeatherEntity weatherEntity}) = _$_TodayWeatherState;
+      required final MyWeatherEntity? myWeatherEntity}) = _$_TodayWeatherState;
 
   factory _TodayWeatherState.fromJson(Map<String, dynamic> json) =
       _$_TodayWeatherState.fromJson;
@@ -193,7 +183,7 @@ abstract class _TodayWeatherState implements TodayWeatherState {
   @override
   bool get error => throw _privateConstructorUsedError;
   @override
-  WeatherEntity get weatherEntity => throw _privateConstructorUsedError;
+  MyWeatherEntity? get myWeatherEntity => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$TodayWeatherStateCopyWith<_TodayWeatherState> get copyWith =>

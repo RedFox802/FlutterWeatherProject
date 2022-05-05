@@ -33,7 +33,10 @@ class TodayWeatherScreen extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (BuildContext context) {
-                          return const ThreeDaysWeatherScreen();
+                          return ThreeDaysWeatherScreen(
+                            lat: state.myWeatherEntity!.coord!.lat!,
+                            lon: state.myWeatherEntity!.coord!.lon!,
+                          );
                         },
                       ),
                     );

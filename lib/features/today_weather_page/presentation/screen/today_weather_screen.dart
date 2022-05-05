@@ -42,20 +42,17 @@ class TodayWeatherScreen extends StatelessWidget {
                 )
               ],
             ),
-            body: state.error
-                ? SnackBar(
-                    content: const Text('Server error!'),
-                    action: SnackBarAction(
-                      label: 'OK',
-                      onPressed: () {
-                        Navigator.canPop(context);
-                      },
+            body: state.loading
+                ? const Center(
+                    child: Text(
+                      "Please waiting...",
+                      style: AppTextStyle.timesNewRomanW700S30,
                     ),
                   )
-                : state.loading
+                : state.error
                     ? const Center(
                         child: Text(
-                          "Please waiting...",
+                          "Server error...",
                           style: AppTextStyle.timesNewRomanW700S30,
                         ),
                       )
@@ -89,14 +86,15 @@ class TodayWeatherScreen extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(horizontal: 72),
                             child: Row(
                               children: [
-                                Assets.icons.iconUp.svg(width: 20,height: 20),
+                                Assets.icons.iconUp.svg(width: 20, height: 20),
                                 const SizedBox(width: 4),
                                 Text(
                                   "${state.myWeatherEntity?.main?.tempMax}°C",
                                   style: AppTextStyle.timesNewRomanW700S22,
                                 ),
                                 const SizedBox(width: 8),
-                                Assets.icons.iconDown.svg(width: 22,height: 22),
+                                Assets.icons.iconDown
+                                    .svg(width: 22, height: 22),
                                 const SizedBox(width: 4),
                                 Text(
                                   "${state.myWeatherEntity?.main?.tempMin}°C",
@@ -151,7 +149,6 @@ class TodayWeatherScreen extends StatelessWidget {
                             "Gust: ${state.myWeatherEntity?.wind?.gust} m/s",
                             style: AppTextStyle.timesNewRomanW700S16,
                           ),
-
                         ],
                       ),
           );

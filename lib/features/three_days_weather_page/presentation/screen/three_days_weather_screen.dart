@@ -6,8 +6,9 @@ class ThreeDaysWeatherScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: DefaultAppBar(
+    return Scaffold(
+      backgroundColor: Colors.deepPurple.shade100,
+      appBar: const DefaultAppBar(
         titleText: 'Next three days',
       ),
     );

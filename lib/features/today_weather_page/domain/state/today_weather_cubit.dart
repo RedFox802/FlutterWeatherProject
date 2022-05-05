@@ -30,7 +30,6 @@ class TodayWeatherCubit extends Cubit<TodayWeatherState> {
       });
 
       var response = await http.get(url);
-      emit(state.copyWith(loading: false));
 
       if (response.statusCode == 200) {
         var jsonResponse =
@@ -42,10 +41,10 @@ class TodayWeatherCubit extends Cubit<TodayWeatherState> {
           ),
         );
       } else {
-        emit(state.copyWith(error: true));
+        emit(state.copyWith(error: true,loading: false));
       }
     } catch (e) {
-      emit(state.copyWith(error: true));
+      emit(state.copyWith(error: true,loading: false));
     }
   }
 }

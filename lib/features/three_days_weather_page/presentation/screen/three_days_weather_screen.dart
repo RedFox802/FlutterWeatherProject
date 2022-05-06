@@ -24,7 +24,6 @@ class ThreeDaysWeatherScreen extends StatelessWidget {
       child: BlocBuilder<WeatherListCubit, WeatherListState>(
         builder: (context, state) {
           return Scaffold(
-            backgroundColor: Colors.deepPurple.shade100,
             appBar: const DefaultAppBar(
               titleText: 'Next three days',
             ),
@@ -46,11 +45,11 @@ class ThreeDaysWeatherScreen extends StatelessWidget {
                         children: [
                           ListView(
                             children: [
-                              const SizedBox(height: 60),
+                              const SizedBox(height: 8),
                               for (int i = 1; i < 4; i++)
                                 Padding(
                                   padding:
-                                      const EdgeInsets.symmetric(vertical: 10),
+                                      const EdgeInsets.symmetric(vertical: 6),
                                   child: WeatherContainer(
                                     daily: state.weatherList!.daily![i],
                                   ),

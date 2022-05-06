@@ -31,6 +31,18 @@ class WeatherList {
       log(" В везерлисте ${e}");
     }
   }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['lat'] = lat;
+    data['lon'] = lon;
+    data['timezone'] = timezone;
+    data['timezone_offset'] = timezoneOffset;
+    if (daily != null) {
+      data['daily'] = daily!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
 }
 
 class Daily {
@@ -46,7 +58,7 @@ class Daily {
   int? humidity;
   double? dewPoint;
   double? windSpeed;
-  double? windDeg;
+  int? windDeg;
   double? windGust;
   List<Weather>? weather;
   double? clouds;
@@ -108,6 +120,35 @@ class Daily {
       log(" В дайли ${e}");
     }
   }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['dt'] = dt;
+    data['sunrise'] = sunrise;
+    data['sunset'] = sunset;
+    data['moonrise'] = moonrise;
+    data['moonset'] = moonset;
+    data['moon_phase'] = moonPhase;
+    if (temp != null) {
+      data['temp'] = temp!.toJson();
+    }
+    if (feelsLike != null) {
+      data['feels_like'] = feelsLike!.toJson();
+    }
+    data['pressure'] = pressure;
+    data['humidity'] = humidity;
+    data['dew_point'] = dewPoint;
+    data['wind_speed'] = windSpeed;
+    data['wind_deg'] = windDeg;
+    data['wind_gust'] = windGust;
+    if (weather != null) {
+      data['weather'] = weather!.map((v) => v.toJson()).toList();
+    }
+    data['clouds'] = clouds;
+    data['pop'] = pop;
+    data['uvi'] = uvi;
+    return data;
+  }
 }
 
 class Temp {
@@ -132,6 +173,17 @@ class Temp {
       log("В темпе ${e}");
     }
   }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['day'] = day;
+    data['min'] = min;
+    data['max'] = max;
+    data['night'] = night;
+    data['eve'] = eve;
+    data['morn'] = morn;
+    return data;
+  }
 }
 
 class FeelsLike {
@@ -152,6 +204,15 @@ class FeelsLike {
       log("В филлайке ${e}");
     }
   }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['day'] = day;
+    data['night'] = night;
+    data['eve'] = eve;
+    data['morn'] = morn;
+    return data;
+  }
 }
 
 class Weather {
@@ -171,5 +232,14 @@ class Weather {
     } catch (e) {
       log("В везере ${e}");
     }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['id'] = id;
+    data['main'] = main;
+    data['description'] = description;
+    data['icon'] = icon;
+    return data;
   }
 }

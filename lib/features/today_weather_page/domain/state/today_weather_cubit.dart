@@ -42,10 +42,10 @@ class TodayWeatherCubit extends Cubit<TodayWeatherState> {
           ),
         );
       } else {
-        emit(state.copyWith(error: true));
+        emit(state.copyWith(loading:false,error: true));
       }
     } catch (e) {
-      emit(state.copyWith(error: true));
+      emit(state.copyWith(loading:false,error: true));
     }
   }
 }

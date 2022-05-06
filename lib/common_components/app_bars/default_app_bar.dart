@@ -25,8 +25,7 @@ class DefaultAppBar extends StatelessWidget with PreferredSizeWidget {
       preferredSize: const Size.fromHeight(80.0),
       child: AppBar(
         title: Text(titleText,
-            style: AppTextStyle.timesNewRomanW700S22
-                .copyWith(color: Colors.black)),
+            style: AppTextStyle.timesNewRomanW700S18),
         centerTitle: true,
         leading: canPop
             ? IconButton(

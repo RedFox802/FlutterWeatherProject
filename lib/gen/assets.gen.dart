@@ -18,12 +18,25 @@ class $AssetsIconsGen {
   /// File path: assets/icons/icon_down.svg
   SvgGenImage get iconDown => const SvgGenImage('assets/icons/icon_down.svg');
 
+  /// File path: assets/icons/icon_drop.svg
+  SvgGenImage get iconDrop => const SvgGenImage('assets/icons/icon_drop.svg');
+
+  /// File path: assets/icons/icon_preassure.svg
+  SvgGenImage get iconPreassure =>
+      const SvgGenImage('assets/icons/icon_preassure.svg');
+
+  /// File path: assets/icons/icon_rain.svg
+  SvgGenImage get iconRain => const SvgGenImage('assets/icons/icon_rain.svg');
+
   /// File path: assets/icons/icon_transition.svg
   SvgGenImage get iconTransition =>
       const SvgGenImage('assets/icons/icon_transition.svg');
 
   /// File path: assets/icons/icon_up.svg
   SvgGenImage get iconUp => const SvgGenImage('assets/icons/icon_up.svg');
+
+  /// File path: assets/icons/icon_wind.svg
+  SvgGenImage get iconWind => const SvgGenImage('assets/icons/icon_wind.svg');
 }
 
 class Assets {

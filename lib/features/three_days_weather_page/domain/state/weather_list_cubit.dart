@@ -18,7 +18,7 @@ class WeatherListCubit extends Cubit<WeatherListState> {
           ),
         );
 
-  void init() async{
+  void init() async {
     await loadWeatherList();
   }
 
@@ -27,21 +27,18 @@ class WeatherListCubit extends Cubit<WeatherListState> {
 
     try {
       var url = Uri.https('api.openweathermap.org', '/data/2.5/onecall', {
+        'lat':'${lat}',
+        'lon':'${lon}',
         'exclude': 'current,minutely,hourly,alerts',
         'units': 'metric',
         'appid': '1b44d0a180da7320f88afc5d0ca955b3',
       });
 
       var response = await http.get(url);
-
-      log("${response.statusCode}");
-      //log("${response.body}");
-
+      log("${response.body}");
       if (response.statusCode == 200) {
         var jsonResponse =
             convert.jsonDecode(response.body) as Map<String, dynamic>;
-
-        log("${jsonResponse}");
 
         emit(
           state.copyWith(
@@ -50,10 +47,10 @@ class WeatherListCubit extends Cubit<WeatherListState> {
           ),
         );
       } else {
-        emit(state.copyWith(error: true));
+        emit(state.copyWith(loading:false,error: true));
       }
     } catch (e) {
-      emit(state.copyWith(error: true));
+      emit(state.copyWith(loading:false,error: true));
     }
   }
 }

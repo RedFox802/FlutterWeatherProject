@@ -7,28 +7,24 @@ class WeatherList {
   int? timezoneOffset;
   List<Daily>? daily;
 
-  WeatherList({
-    this.lat,
-    this.lon,
-    this.timezone,
-    this.timezoneOffset,
-    this.daily,
-  });
+  WeatherList(
+      {this.lat, this.lon, this.timezone, this.timezoneOffset, this.daily});
 
   WeatherList.fromJson(Map<String, dynamic> json) {
     try {
-      lat = json['lat'];
-      lon = json['lon'];
-      timezone = json['timezone'];
-      timezoneOffset = json['timezone_offset'];
+      lat = json['lat'] ?? 0;
+      lon = json['lon'] ?? 0;
+      timezone = json['timezone'] ?? '';
+      timezoneOffset = json['timezone_offset'] ?? 0;
       if (json['daily'] != null) {
         daily = <Daily>[];
         json['daily'].forEach((v) {
           daily!.add(Daily.fromJson(v));
         });
       }
-    } catch (e) {
-      log(" В везерлисте ${e}");
+    }
+    catch(e){
+      log('${e}');
     }
   }
 
@@ -61,10 +57,10 @@ class Daily {
   int? windDeg;
   double? windGust;
   List<Weather>? weather;
-  double? clouds;
+  int? clouds;
   double? pop;
-  double? rain;
   double? uvi;
+  double? rain;
 
   Daily(
       {this.dt,
@@ -84,40 +80,40 @@ class Daily {
       this.weather,
       this.clouds,
       this.pop,
-      this.rain,
-      this.uvi});
+      this.uvi,
+      this.rain});
 
   Daily.fromJson(Map<String, dynamic> json) {
-    try {
-      dt = json['dt'];
-      sunrise = json['sunrise'];
-      sunset = json['sunset'];
-      moonrise = json['moonrise'];
-      moonset = json['moonset'];
-      moonPhase = json['moon_phase'];
-      temp = json['temp'] != null ? Temp.fromJson(json['temp']) : null;
-      feelsLike = json['feels_like'] != null
-          ? FeelsLike.fromJson(json['feels_like'])
-          : null;
-      pressure = json['pressure'];
-      humidity = json['humidity'];
-      dewPoint = json['dew_point'];
-      windSpeed = json['wind_speed'];
-      windDeg = json['wind_deg'];
-      windGust = json['wind_gust'];
-      if (json['weather'] != null) {
-        weather = <Weather>[];
-        json['weather'].forEach((v) {
-          weather!.add(Weather.fromJson(v));
-        });
-      }
-      log("Почти все");
-      clouds = json['clouds'];
-      pop = json['pop'];
-      rain = json['rain'];
-      uvi = json['uvi'];
-    } catch (e) {
-      log(" В дайли ${e}");
+    try{
+    dt = json['dt'] ?? 0;
+    sunrise = json['sunrise'] ?? 0;
+    sunset = json['sunset'] ?? 0;
+    moonrise = json['moonrise'] ?? 0;
+    moonset = json['moonset'] ?? 0;
+    moonPhase = json['moon_phase'] ?? 0;
+    temp = json['temp'] != null ? Temp.fromJson(json['temp']) : Temp();
+    feelsLike = json['feels_like'] != null
+        ? FeelsLike.fromJson(json['feels_like'])
+        : FeelsLike();
+    pressure = json['pressure']?? 0;
+    humidity = json['humidity']?? 0;
+    dewPoint = json['dew_point']?? 0;
+    windSpeed = json['wind_speed']?? 0;
+    windDeg = json['wind_deg']?? 0;
+    windGust = json['wind_gust']?? 0;
+    if (json['weather'] != null) {
+      weather = <Weather>[];
+      json['weather'].forEach((v) {
+        weather!.add(new Weather.fromJson(v));
+      });
+    }
+    clouds = json['clouds']?? 0;
+    pop = json['pop']?? 0;
+    uvi = json['uvi']?? 0;
+    rain = json['rain']?? 0;
+    }
+    catch(e){
+      log('${e}');
     }
   }
 
@@ -147,6 +143,7 @@ class Daily {
     data['clouds'] = clouds;
     data['pop'] = pop;
     data['uvi'] = uvi;
+    data['rain'] = rain;
     return data;
   }
 }
@@ -162,20 +159,21 @@ class Temp {
   Temp({this.day, this.min, this.max, this.night, this.eve, this.morn});
 
   Temp.fromJson(Map<String, dynamic> json) {
-    try {
-      day = json['day'];
-      min = json['min'];
-      max = json['max'];
-      night = json['night'];
-      eve = json['eve'];
-      morn = json['morn'];
-    } catch (e) {
-      log("В темпе ${e}");
+    try{
+    day = json['day']?? 0;
+    min = json['min']?? 0;
+    max = json['max']?? 0;
+    night = json['night']?? 0;
+    eve = json['eve']?? 0;
+    morn = json['morn']?? 0;
+    }
+    catch(e){
+      log('${e}');
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['day'] = day;
     data['min'] = min;
     data['max'] = max;
@@ -195,13 +193,14 @@ class FeelsLike {
   FeelsLike({this.day, this.night, this.eve, this.morn});
 
   FeelsLike.fromJson(Map<String, dynamic> json) {
-    try {
-      day = json['day'];
-      night = json['night'];
-      eve = json['eve'];
-      morn = json['morn'];
-    } catch (e) {
-      log("В филлайке ${e}");
+    try{
+    day = json['day']?? 0;
+    night = json['night']?? 0;
+    eve = json['eve']?? 0;
+    morn = json['morn']?? 0;
+    }
+    catch(e){
+      log('${e}');
     }
   }
 
@@ -224,22 +223,23 @@ class Weather {
   Weather({this.id, this.main, this.description, this.icon});
 
   Weather.fromJson(Map<String, dynamic> json) {
-    try {
-      id = json['id'];
-      main = json['main'];
-      description = json['description'];
-      icon = json['icon'];
-    } catch (e) {
-      log("В везере ${e}");
+    try{
+    id = json['id'];
+    main = json['main'];
+    description = json['description'];
+    icon = json['icon'];
+    }
+    catch(e){
+      log('${e}');
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['id'] = id;
-    data['main'] = main;
-    data['description'] = description;
-    data['icon'] = icon;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['main'] = this.main;
+    data['description'] = this.description;
+    data['icon'] = this.icon;
     return data;
   }
 }

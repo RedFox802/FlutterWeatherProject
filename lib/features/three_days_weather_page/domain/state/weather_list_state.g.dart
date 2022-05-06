@@ -10,9 +10,8 @@ _$_WeatherListState _$$_WeatherListStateFromJson(Map<String, dynamic> json) =>
     _$_WeatherListState(
       loading: json['loading'] as bool? ?? false,
       error: json['error'] as bool? ?? false,
-      weatherList: json['weatherList'] == null
-          ? null
-          : WeatherList.fromJson(json['weatherList'] as Map<String, dynamic>),
+      weatherList:
+          WeatherList.fromJson(json['weatherList'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_WeatherListStateToJson(_$_WeatherListState instance) =>

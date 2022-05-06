@@ -4,7 +4,6 @@ import 'package:weather_app/features/three_days_weather_page/domain/state/weathe
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
-
 import '../../entity/weathers_list.dart';
 
 class WeatherListCubit extends Cubit<WeatherListState> {
@@ -27,18 +26,22 @@ class WeatherListCubit extends Cubit<WeatherListState> {
 
     try {
       var url = Uri.https('api.openweathermap.org', '/data/2.5/onecall', {
-        'lat':'${lat}',
-        'lon':'${lon}',
+        'lat': '${lat}',
+        'lon': '${lon}',
         'exclude': 'current,minutely,hourly,alerts',
         'units': 'metric',
         'appid': '1b44d0a180da7320f88afc5d0ca955b3',
       });
 
       var response = await http.get(url);
+
       log("${response.body}");
       if (response.statusCode == 200) {
         var jsonResponse =
             convert.jsonDecode(response.body) as Map<String, dynamic>;
+
+        var aa= WeatherList.fromJson(jsonResponse);
+        log("${aa}");
 
         emit(
           state.copyWith(
@@ -47,10 +50,10 @@ class WeatherListCubit extends Cubit<WeatherListState> {
           ),
         );
       } else {
-        emit(state.copyWith(loading:false,error: true));
+        emit(state.copyWith(error: true));
       }
     } catch (e) {
-      emit(state.copyWith(loading:false,error: true));
+      emit(state.copyWith(error: true));
     }
   }
 }

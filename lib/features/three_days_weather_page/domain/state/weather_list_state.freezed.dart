@@ -22,7 +22,7 @@ WeatherListState _$WeatherListStateFromJson(Map<String, dynamic> json) {
 mixin _$WeatherListState {
   bool get loading => throw _privateConstructorUsedError;
   bool get error => throw _privateConstructorUsedError;
-  WeatherList? get weatherList => throw _privateConstructorUsedError;
+  WeatherList get weatherList => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $WeatherListStateCopyWith<$Res> {
   factory $WeatherListStateCopyWith(
           WeatherListState value, $Res Function(WeatherListState) then) =
       _$WeatherListStateCopyWithImpl<$Res>;
-  $Res call({bool loading, bool error, WeatherList? weatherList});
+  $Res call({bool loading, bool error, WeatherList weatherList});
 }
 
 /// @nodoc
@@ -65,7 +65,7 @@ class _$WeatherListStateCopyWithImpl<$Res>
       weatherList: weatherList == freezed
           ? _value.weatherList
           : weatherList // ignore: cast_nullable_to_non_nullable
-              as WeatherList?,
+              as WeatherList,
     ));
   }
 }
@@ -77,7 +77,7 @@ abstract class _$WeatherListStateCopyWith<$Res>
           _WeatherListState value, $Res Function(_WeatherListState) then) =
       __$WeatherListStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool loading, bool error, WeatherList? weatherList});
+  $Res call({bool loading, bool error, WeatherList weatherList});
 }
 
 /// @nodoc
@@ -109,7 +109,7 @@ class __$WeatherListStateCopyWithImpl<$Res>
       weatherList: weatherList == freezed
           ? _value.weatherList
           : weatherList // ignore: cast_nullable_to_non_nullable
-              as WeatherList?,
+              as WeatherList,
     ));
   }
 }
@@ -130,7 +130,7 @@ class _$_WeatherListState implements _WeatherListState {
   @JsonKey()
   final bool error;
   @override
-  final WeatherList? weatherList;
+  final WeatherList weatherList;
 
   @override
   String toString() {
@@ -171,7 +171,7 @@ abstract class _WeatherListState implements WeatherListState {
   factory _WeatherListState(
       {final bool loading,
       final bool error,
-      required final WeatherList? weatherList}) = _$_WeatherListState;
+      required final WeatherList weatherList}) = _$_WeatherListState;
 
   factory _WeatherListState.fromJson(Map<String, dynamic> json) =
       _$_WeatherListState.fromJson;
@@ -181,7 +181,7 @@ abstract class _WeatherListState implements WeatherListState {
   @override
   bool get error => throw _privateConstructorUsedError;
   @override
-  WeatherList? get weatherList => throw _privateConstructorUsedError;
+  WeatherList get weatherList => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$WeatherListStateCopyWith<_WeatherListState> get copyWith =>

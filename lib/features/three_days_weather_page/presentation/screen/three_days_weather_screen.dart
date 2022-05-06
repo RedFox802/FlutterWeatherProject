@@ -23,6 +23,16 @@ class ThreeDaysWeatherScreen extends StatelessWidget {
       create: (context) => WeatherListCubit(lat, lon)..init(),
       child: BlocBuilder<WeatherListCubit, WeatherListState>(
         builder: (context, state) {
+          double? _first = state.weatherList?.daily?[1].temp?.day;
+          double? _current;
+          int _index = 1;
+          for (int i = 2; i < 4; i++) {
+            _current = state.weatherList?.daily?[i].temp?.day;
+            if (_current! <= _first!) {
+              _first = _current;
+              _index = i;
+            }
+          }
           return Scaffold(
             appBar: const DefaultAppBar(
               titleText: 'Next three days',
@@ -46,14 +56,22 @@ class ThreeDaysWeatherScreen extends StatelessWidget {
                           ListView(
                             children: [
                               const SizedBox(height: 8),
-                              for (int i = 1; i < 4; i++)
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 6),
-                                  child: WeatherContainer(
-                                    daily: state.weatherList!.daily![i],
-                                  ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 6),
+                                child: WeatherContainer(
+                                  daily: state.weatherList!.daily![_index],
                                 ),
+                              ),
+                              for (int i = 1; i < 4; i++)
+                                if (i != _index)
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.symmetric(vertical: 6),
+                                    child: WeatherContainer(
+                                      daily: state.weatherList!.daily![i],
+                                    ),
+                                  ),
                             ],
                           ),
                         ],

@@ -30,36 +30,39 @@ class TodayWeatherScreen extends StatelessWidget {
             appBar: DefaultAppBar(
               titleText: DateFormat.yMMMd().format(DateTime.now()),
               action: [
-                IconButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) {
-                          return ThreeDaysWeatherScreen(
-                            lat: state.myWeatherEntity!.coord!.lat!,
-                            lon: state.myWeatherEntity!.coord!.lon!,
+                !state.error
+                    ? IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext context) {
+                                return ThreeDaysWeatherScreen(
+                                  lat: state.myWeatherEntity!.coord!.lat!,
+                                  lon: state.myWeatherEntity!.coord!.lon!,
+                                );
+                              },
+                            ),
                           );
                         },
-                      ),
-                    );
-                  },
-                  icon: Assets.icons.iconTransition.svg(color: Colors.white),
-                )
+                        icon: Assets.icons.iconTransition
+                            .svg(color: Colors.white),
+                      )
+                    : const SizedBox(),
               ],
             ),
             body: state.loading
                 ? Center(
                     child: Text(
                       "Please waiting...",
-                      style: AppTextStyle.normalW400S30,
+                      style: AppTextStyle.normalW300S30,
                     ),
                   )
                 : state.error
                     ? Center(
                         child: Text(
                           "Server error...",
-                          style: AppTextStyle.normalW400S30,
+                          style: AppTextStyle.normalW300S30,
                         ),
                       )
                     : Column(
@@ -68,36 +71,40 @@ class TodayWeatherScreen extends StatelessWidget {
                           SizedBox(height: 4.h),
                           Text(
                             "${state.myWeatherEntity?.name}",
-                            style: AppTextStyle.normalW400S40,
+                            style: AppTextStyle.normalW300S40,
                           ),
                           SizedBox(height: 4.h),
                           Text(
                             "${state.myWeatherEntity?.main?.temp}°C",
-                            style: AppTextStyle.normalW400S40,
+                            style: AppTextStyle.normalW300S40,
                           ),
                           SizedBox(height: 10.h),
                           Text(
                             "Feel like: ${state.myWeatherEntity?.main?.feelsLike}°C",
-                            style: AppTextStyle.normalW500S22,
+                            style: AppTextStyle.normalW300S22,
                           ),
                           SizedBox(height: 10.h),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Assets.icons.iconUp.svg(
-                                  width: 20.w, height: 20.h, color: Colors.white),
+                                  width: 20.w,
+                                  height: 20.h,
+                                  color: Colors.white),
                               SizedBox(width: 4.w),
                               Text(
                                 "${state.myWeatherEntity?.main?.tempMax}°C",
-                                style: AppTextStyle.normalW500S22,
+                                style: AppTextStyle.normalW300S22,
                               ),
                               SizedBox(width: 8.w),
                               Assets.icons.iconDown.svg(
-                                  width: 22.w, height: 22.h, color: Colors.white),
+                                  width: 22.w,
+                                  height: 22.h,
+                                  color: Colors.white),
                               SizedBox(width: 4.w),
                               Text(
                                 "${state.myWeatherEntity?.main?.tempMin}°C",
-                                style: AppTextStyle.normalW500S22,
+                                style: AppTextStyle.normalW300S22,
                               ),
                             ],
                           ),
@@ -115,18 +122,19 @@ class TodayWeatherScreen extends StatelessWidget {
                                   children: [
                                     Text(
                                       "${state.myWeatherEntity?.weather?.first.main}",
-                                      style: AppTextStyle.normalW500S22,
+                                      style: AppTextStyle.normalW300S22,
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.symmetric(vertical: 4.h),
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 4.h),
                                       child: Text(
                                         "${state.myWeatherEntity?.weather?.first.description}",
-                                        style: AppTextStyle.normalW500S16,
+                                        style: AppTextStyle.normalW300S16,
                                       ),
                                     ),
                                     Text(
                                       "Cloudiness: ${state.myWeatherEntity?.clouds?.all}%",
-                                      style: AppTextStyle.normalW500S16,
+                                      style: AppTextStyle.normalW300S16,
                                     ),
                                   ],
                                 ),
@@ -140,11 +148,13 @@ class TodayWeatherScreen extends StatelessWidget {
                               //mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Assets.icons.iconDrop.svg(
-                                    width: 50.w, height: 50.h, color: Colors.white),
+                                    width: 50.w,
+                                    height: 50.h,
+                                    color: Colors.white),
                                 SizedBox(width: 20.w),
                                 Text(
                                   "Humidity:\n${state.myWeatherEntity?.main?.humidity}%",
-                                  style: AppTextStyle.normalW500S16,
+                                  style: AppTextStyle.normalW300S16,
                                 ),
                               ],
                             ),
@@ -160,7 +170,7 @@ class TodayWeatherScreen extends StatelessWidget {
                                 SizedBox(width: 20.w),
                                 Text(
                                   "Pressure:\n${state.myWeatherEntity?.main?.pressure} mBar",
-                                  style: AppTextStyle.normalW500S16,
+                                  style: AppTextStyle.normalW300S16,
                                 ),
                               ],
                             ),
@@ -177,7 +187,7 @@ class TodayWeatherScreen extends StatelessWidget {
                                   "Wind speed:\n${state.myWeatherEntity?.wind?.speed} m/s\n"
                                   "Direction of the wind:\n${state.myWeatherEntity?.wind?.deg}°\n"
                                   "Gust:\n${state.myWeatherEntity?.wind?.gust} m/s",
-                                  style: AppTextStyle.normalW500S16,
+                                  style: AppTextStyle.normalW300S16,
                                 ),
                               ],
                             ),

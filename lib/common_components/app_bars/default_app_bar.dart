@@ -25,14 +25,15 @@ class DefaultAppBar extends StatelessWidget with PreferredSizeWidget {
     return PreferredSize(
       preferredSize: const Size.fromHeight(80.0),
       child: AppBar(
-        title: Text(titleText, style: AppTextStyle.normalW500S18),
+        title: Text(titleText, style: AppTextStyle.normalW300S18),
         centerTitle: true,
         leading: canPop
             ? IconButton(
                 onPressed: () {
                   Navigator.maybePop(context);
                 },
-                icon: Assets.icons.iconBack.svg(width: 26.w, height: 26.h,color: Colors.white),
+                icon: Assets.icons.iconBack
+                    .svg(width: 26.w, height: 26.h, color: Colors.white),
               )
             : null,
         actions: action,

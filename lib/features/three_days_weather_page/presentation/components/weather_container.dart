@@ -23,7 +23,7 @@ class WeatherContainer extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: Container(
-        height: 350.h,
+        height: 290.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30.r),
           color: Colors.blue,
@@ -33,7 +33,7 @@ class WeatherContainer extends StatelessWidget {
             SizedBox(height: 10.h),
             Text(
               DateFormat.yMMMd().format(_date),
-              style: AppTextStyle.normalW500S18,
+              style: AppTextStyle.normalW300S18,
             ),
             Padding(
               padding: EdgeInsets.only(top: 10.h),
@@ -44,12 +44,12 @@ class WeatherContainer extends StatelessWidget {
                         EdgeInsets.only(bottom: 6.h, left: 10.w, right: 20.h),
                     child: Text(
                       "${daily.temp?.day}°C",
-                      style: AppTextStyle.normalW400S30,
+                      style: AppTextStyle.normalW300S30,
                     ),
                   ),
                   Text(
                     "${daily.weather?.first.main}\n${daily.weather?.first.description}",
-                    style: AppTextStyle.normalW500S14,
+                    style: AppTextStyle.normalW300S14,
                     textAlign: TextAlign.center,
                   ),
                 ],
@@ -68,11 +68,11 @@ class WeatherContainer extends StatelessWidget {
                         SizedBox(width: 10.w),
                         Text(
                           "Wind\n${daily.windSpeed} m/c",
-                          style: AppTextStyle.normalW500S14,
+                          style: AppTextStyle.normalW300S14,
                         ),
                       ],
                     ),
-                    SizedBox(height: 30.h),
+                    SizedBox(height: 10.h),
                     Row(
                       children: [
                         Assets.icons.iconPreassure
@@ -80,7 +80,7 @@ class WeatherContainer extends StatelessWidget {
                         SizedBox(width: 10.w),
                         Text(
                           "Preassure\n${daily.pressure} mBar",
-                          style: AppTextStyle.normalW500S14,
+                          style: AppTextStyle.normalW300S14,
                         ),
                       ],
                     ),
@@ -96,11 +96,11 @@ class WeatherContainer extends StatelessWidget {
                         SizedBox(width: 10.w),
                         Text(
                           "Rain\n${daily.pop}%",
-                          style: AppTextStyle.normalW500S14,
+                          style: AppTextStyle.normalW300S14,
                         ),
                       ],
                     ),
-                    SizedBox(height: 30.h),
+                    SizedBox(height: 10.h),
                     Row(
                       children: [
                         Assets.icons.iconDrop.svg(
@@ -108,7 +108,7 @@ class WeatherContainer extends StatelessWidget {
                         SizedBox(width: 10.w),
                         Text(
                           "Humidity\n${daily.humidity}%",
-                          style: AppTextStyle.normalW500S14,
+                          style: AppTextStyle.normalW300S14,
                         ),
                       ],
                     ),
@@ -120,42 +120,25 @@ class WeatherContainer extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Morn\n${daily.temp?.morn}\n${daily.feelsLike?.morn}',
-                      style: AppTextStyle.normalW500S14,
-                    ),
-                  ],
+                Text(
+                  'Morn\n${daily.temp?.morn}\n${daily.feelsLike?.morn}',
+                  style: AppTextStyle.normalW300S14,
                 ),
                 SizedBox(width: 30.w),
-                Column(
-                  children: [
-                    Text(
-                      'Day\n${daily.temp?.day}\n${daily.feelsLike?.day}',
-                      style: AppTextStyle.normalW500S14,
-                    ),
-                  ],
+                Text(
+                  'Day\n${daily.temp?.day}\n${daily.feelsLike?.day}',
+                  style: AppTextStyle.normalW300S14,
                 ),
                 SizedBox(width: 30.w),
-                Column(
-                  children: [
-                    Text(
-                      'Eve\n${daily.temp?.eve}\n${daily.feelsLike?.eve}',
-                      style: AppTextStyle.normalW500S14,
-                    ),
-                  ],
+                Text(
+                  'Eve\n${daily.temp?.eve}\n${daily.feelsLike?.eve}',
+                  style: AppTextStyle.normalW300S14,
                 ),
                 SizedBox(width: 30.w),
-                Column(
-                  children: [
-                    Text(
-                      'Nigt\n${daily.temp?.night}\n${daily.feelsLike?.night}',
-                      style: AppTextStyle.normalW500S14,
-                    ),
-                  ],
-                )
+                Text(
+                  'Nigt\n${daily.temp?.night}\n${daily.feelsLike?.night}',
+                  style: AppTextStyle.normalW300S14,
+                ),
               ],
             ),
           ],

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/common_components/app_bars/default_app_bar.dart';
@@ -34,19 +32,18 @@ class ThreeDaysWeatherScreen extends StatelessWidget {
                 ? Center(
                     child: Text(
                       "Please waiting...",
-                      style: AppTextStyle.normalW400S30.copyWith(color:Colors.black),
+                      style: AppTextStyle.normalW300S30.copyWith(color:Colors.black),
                     ),
                   )
                 : state.error
                     ? Center(
                         child: Text(
                           "Server error...",
-                          style: AppTextStyle.normalW400S30.copyWith(color:Colors.black),
+                          style: AppTextStyle.normalW300S30.copyWith(color:Colors.black),
                         ),
                       )
                     : Builder(
                       builder: (context) {
-                        log("я тут");
                         int _index = 1;
                         double? _first = state.weatherList.daily?[1].temp?.day;
                         double? _current;
@@ -56,7 +53,6 @@ class ThreeDaysWeatherScreen extends StatelessWidget {
                           if (_current! < _first!) {
                             _first = _current;
                             _index = i;
-                            log("${i}");
                           }
                         }
                         return Stack(

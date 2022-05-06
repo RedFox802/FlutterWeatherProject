@@ -23,7 +23,7 @@ class ChooseCityScreen extends StatelessWidget {
               child: Text(
                 'Choose your city',
                 textAlign: TextAlign.center,
-                style: AppTextStyle.normalW500S22,
+                style: AppTextStyle.normalW300S22,
               ),
             ),
             Padding(
@@ -61,10 +61,10 @@ class ChooseCityScreen extends StatelessWidget {
                 },
                 child: Text(
                   "Confirm",
-                  style: AppTextStyle.normalW500S18,
-                  ),
+                  style: AppTextStyle.normalW300S18,
                 ),
               ),
+            ),
           ],
         ),
       ),

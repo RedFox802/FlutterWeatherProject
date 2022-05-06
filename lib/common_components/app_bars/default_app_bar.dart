@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../gen/assets.gen.dart';
 import '../text_styles/app_text_styles.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DefaultAppBar extends StatelessWidget with PreferredSizeWidget {
   final String titleText;
@@ -24,16 +25,15 @@ class DefaultAppBar extends StatelessWidget with PreferredSizeWidget {
     return PreferredSize(
       preferredSize: const Size.fromHeight(80.0),
       child: AppBar(
-        title: Text(titleText,
-            style: AppTextStyle.timesNewRomanW700S22
-                .copyWith(color: Colors.black)),
+        title: Text(titleText, style: AppTextStyle.normalW300S18),
         centerTitle: true,
         leading: canPop
             ? IconButton(
                 onPressed: () {
                   Navigator.maybePop(context);
                 },
-                icon: Assets.icons.iconBack.svg(width: 26, height: 26),
+                icon: Assets.icons.iconBack
+                    .svg(width: 26.w, height: 26.h, color: Colors.white),
               )
             : null,
         actions: action,

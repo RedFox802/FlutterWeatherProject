@@ -5,8 +5,8 @@ import 'package:weather_app/common_components/text_styles/app_text_styles.dart';
 import 'package:weather_app/features/today_weather_page/presentation/screen/today_weather_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ChooseCityScreen extends StatelessWidget {
-  const ChooseCityScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

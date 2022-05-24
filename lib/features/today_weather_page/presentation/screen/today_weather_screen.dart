@@ -12,7 +12,7 @@ import 'package:intl/intl.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TodayWeatherScreen extends StatelessWidget {
-  final city;
+  final String city;
 
   const TodayWeatherScreen({
     Key? key,
@@ -38,16 +38,14 @@ class TodayWeatherScreen extends StatelessWidget {
                             MaterialPageRoute(
                               builder: (BuildContext context) {
                                 return ThreeDaysWeatherScreen(
-                                  lat: state.myWeatherEntity!.coord!.lat!,
-                                  lon: state.myWeatherEntity!.coord!.lon!,
+                                  lat: state.weatherEntity.lat,
+                                  lon: state.weatherEntity.lon,
                                 );
                               },
                             ),
                           );
                         },
-                        icon: Assets.icons.iconTransition
-                            .svg(color: Colors.white),
-                      )
+                        icon: Assets.icons.iconTransition.svg(color: Colors.white))
                     : const SizedBox(),
               ],
             ),
@@ -68,19 +66,19 @@ class TodayWeatherScreen extends StatelessWidget {
                     : Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          SizedBox(height: 4.h),
+                          SizedBox(height: 10.h),
                           Text(
-                            "${state.myWeatherEntity?.name}",
+                            state.weatherEntity.name,
                             style: AppTextStyle.normalW300S40,
                           ),
                           SizedBox(height: 4.h),
                           Text(
-                            "${state.myWeatherEntity?.main?.temp}°C",
+                            "${state.weatherEntity.temp}°C",
                             style: AppTextStyle.normalW300S40,
                           ),
                           SizedBox(height: 10.h),
                           Text(
-                            "Feel like: ${state.myWeatherEntity?.main?.feelsLike}°C",
+                            "Feel likes ${state.weatherEntity.feelsLike}°C",
                             style: AppTextStyle.normalW300S22,
                           ),
                           SizedBox(height: 10.h),
@@ -93,17 +91,17 @@ class TodayWeatherScreen extends StatelessWidget {
                                   color: Colors.white),
                               SizedBox(width: 4.w),
                               Text(
-                                "${state.myWeatherEntity?.main?.tempMax}°C",
+                                "${state.weatherEntity.tempMax}°C",
                                 style: AppTextStyle.normalW300S22,
                               ),
-                              SizedBox(width: 8.w),
+                              SizedBox(width: 20.w),
                               Assets.icons.iconDown.svg(
                                   width: 22.w,
                                   height: 22.h,
                                   color: Colors.white),
                               SizedBox(width: 4.w),
                               Text(
-                                "${state.myWeatherEntity?.main?.tempMin}°C",
+                                "${state.weatherEntity.tempMin}°C",
                                 style: AppTextStyle.normalW300S22,
                               ),
                             ],
@@ -112,28 +110,26 @@ class TodayWeatherScreen extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.only(left: 50.w),
                             child: Row(
-                              //mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Assets.icons.iconCloud
-                                    .svg(width: 50.w, height: 50.h),
+                                Assets.icons.iconCloud.svg(width: 50.w, height: 50.h),
                                 SizedBox(width: 20.w),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "${state.myWeatherEntity?.weather?.first.main}",
+                                      state.weatherEntity.weatherMain,
                                       style: AppTextStyle.normalW300S22,
                                     ),
                                     Padding(
                                       padding:
-                                          EdgeInsets.symmetric(vertical: 4.h),
+                                          EdgeInsets.symmetric(vertical: 2.h),
                                       child: Text(
-                                        "${state.myWeatherEntity?.weather?.first.description}",
+                                        state.weatherEntity.weatherDescription,
                                         style: AppTextStyle.normalW300S16,
                                       ),
                                     ),
                                     Text(
-                                      "Cloudiness: ${state.myWeatherEntity?.clouds?.all}%",
+                                      "Cloudiness: ${state.weatherEntity.clouds}%",
                                       style: AppTextStyle.normalW300S16,
                                     ),
                                   ],
@@ -153,7 +149,7 @@ class TodayWeatherScreen extends StatelessWidget {
                                     color: Colors.white),
                                 SizedBox(width: 20.w),
                                 Text(
-                                  "Humidity:\n${state.myWeatherEntity?.main?.humidity}%",
+                                  "Humidity:\n${state.weatherEntity.humidity}%",
                                   style: AppTextStyle.normalW300S16,
                                 ),
                               ],
@@ -169,7 +165,7 @@ class TodayWeatherScreen extends StatelessWidget {
                                     .svg(width: 50.w, height: 50.h),
                                 SizedBox(width: 20.w),
                                 Text(
-                                  "Pressure:\n${state.myWeatherEntity?.main?.pressure} mBar",
+                                  "Pressure:\n${state.weatherEntity.pressure} mBar",
                                   style: AppTextStyle.normalW300S16,
                                 ),
                               ],
@@ -184,9 +180,9 @@ class TodayWeatherScreen extends StatelessWidget {
                                     .svg(width: 50.w, height: 50.h),
                                 SizedBox(width: 20.w),
                                 Text(
-                                  "Wind speed:\n${state.myWeatherEntity?.wind?.speed} m/s\n"
-                                  "Direction of the wind:\n${state.myWeatherEntity?.wind?.deg}°\n"
-                                  "Gust:\n${state.myWeatherEntity?.wind?.gust} m/s",
+                                  "Wind speed:\n${state.weatherEntity.windSpeed} m/s\n"
+                                  "Direction of the wind:\n${state.weatherEntity.windDeg}°\n"
+                                  "Gust:\n${state.weatherEntity.windGust} m/s",
                                   style: AppTextStyle.normalW300S16,
                                 ),
                               ],

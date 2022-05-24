@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import 'package:weather_app/common_components/text_styles/app_text_styles.dart';
+import 'package:weather_app/features/three_days_weather_page/entity/three_days_weather_entity.dart';
 
 import '../../../../common_components/line.dart';
 import '../../../../gen/assets.gen.dart';
-import '../../entity/weathers_list.dart';
-import 'package:intl/intl.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WeatherContainer extends StatelessWidget {
-  final Daily daily;
+  final ThreeDaysWeatherEntity entity;
   final int day;
 
   const WeatherContainer({
     Key? key,
-    required this.daily,
     required this.day,
+    required this.entity,
   }) : super(key: key);
 
   @override
@@ -40,15 +40,14 @@ class WeatherContainer extends StatelessWidget {
               child: Row(
                 children: [
                   Padding(
-                    padding:
-                        EdgeInsets.only(bottom: 6.h, left: 10.w, right: 20.h),
+                    padding: EdgeInsets.only(bottom: 6.h, left: 10.w, right: 20.h),
                     child: Text(
-                      "${daily.temp?.day}°C",
+                      "${entity.tempDay}°C",
                       style: AppTextStyle.normalW300S30,
                     ),
                   ),
                   Text(
-                    "${daily.weather?.first.main}\n${daily.weather?.first.description}",
+                    "${entity.weatherMain}\n${entity.weatherDescription}",
                     style: AppTextStyle.normalW300S14,
                     textAlign: TextAlign.center,
                   ),
@@ -67,7 +66,7 @@ class WeatherContainer extends StatelessWidget {
                         Assets.icons.iconWind.svg(width: 40.w, height: 40.h),
                         SizedBox(width: 10.w),
                         Text(
-                          "Wind\n${daily.windSpeed} m/c",
+                          "Wind\n${entity.windSpeed} m/c",
                           style: AppTextStyle.normalW300S14,
                         ),
                       ],
@@ -75,11 +74,10 @@ class WeatherContainer extends StatelessWidget {
                     SizedBox(height: 10.h),
                     Row(
                       children: [
-                        Assets.icons.iconPreassure
-                            .svg(width: 40.w, height: 40.h),
+                        Assets.icons.iconPreassure.svg(width: 40.w, height: 40.h),
                         SizedBox(width: 10.w),
                         Text(
-                          "Preassure\n${daily.pressure} mBar",
+                          "Pressure\n${entity.pressure} mBar",
                           style: AppTextStyle.normalW300S14,
                         ),
                       ],
@@ -95,7 +93,7 @@ class WeatherContainer extends StatelessWidget {
                         Assets.icons.iconRain.svg(width: 40.w, height: 40.h),
                         SizedBox(width: 10.w),
                         Text(
-                          "Rain\n${daily.pop}%",
+                          "Rain\n${entity.pop}%",
                           style: AppTextStyle.normalW300S14,
                         ),
                       ],
@@ -104,10 +102,13 @@ class WeatherContainer extends StatelessWidget {
                     Row(
                       children: [
                         Assets.icons.iconDrop.svg(
-                            width: 40.w, height: 40.h, color: Colors.white),
+                          width: 40.w,
+                          height: 40.h,
+                          color: Colors.white,
+                        ),
                         SizedBox(width: 10.w),
                         Text(
-                          "Humidity\n${daily.humidity}%",
+                          "Humidity\n${entity.humidity}%",
                           style: AppTextStyle.normalW300S14,
                         ),
                       ],
@@ -121,22 +122,22 @@ class WeatherContainer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Morn\n${daily.temp?.morn}\n${daily.feelsLike?.morn}',
+                  'Morn\n${entity.tempMorn}\n${entity.feelsMorn}',
                   style: AppTextStyle.normalW300S14,
                 ),
                 SizedBox(width: 30.w),
                 Text(
-                  'Day\n${daily.temp?.day}\n${daily.feelsLike?.day}',
+                  'Day\n${entity.tempDay}\n${entity.feelsDay}',
                   style: AppTextStyle.normalW300S14,
                 ),
                 SizedBox(width: 30.w),
                 Text(
-                  'Eve\n${daily.temp?.eve}\n${daily.feelsLike?.eve}',
+                  'Eve\n${entity.tempEve}\n${entity.feelsEve}',
                   style: AppTextStyle.normalW300S14,
                 ),
                 SizedBox(width: 30.w),
                 Text(
-                  'Nigt\n${daily.temp?.night}\n${daily.feelsLike?.night}',
+                  'Nigt\n${entity.tempNight}\n${entity.feelsNight}',
                   style: AppTextStyle.normalW300S14,
                 ),
               ],

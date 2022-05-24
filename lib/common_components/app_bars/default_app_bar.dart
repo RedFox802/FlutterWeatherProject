@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../gen/assets.gen.dart';
 import '../text_styles/app_text_styles.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DefaultAppBar extends StatelessWidget with PreferredSizeWidget {
   final String titleText;

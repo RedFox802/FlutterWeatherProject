@@ -5,9 +5,8 @@ import 'package:weather_app/features/today_weather_page/domain/state/today_weath
 import '../entity/weather_entity.dart';
 
 class TodayWeatherCubit extends Cubit<TodayWeatherState> {
-  final String city;
 
-  TodayWeatherCubit(this.city)
+  TodayWeatherCubit()
       : super(
           const TodayWeatherState(
             weatherEntity: WeatherEntity(),
@@ -17,11 +16,8 @@ class TodayWeatherCubit extends Cubit<TodayWeatherState> {
   final TodayWeatherNetworkRepository repository =
       TodayWeatherNetworkRepository();
 
-  void init() async {
-    await loadWeather();
-  }
 
-  Future<void> loadWeather() async {
+  Future<void> loadWeather(String city) async {
     emit(state.copyWith(loading: true));
 
     try {

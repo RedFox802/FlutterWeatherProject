@@ -22,7 +22,7 @@ class TodayWeatherScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     double indent = MediaQuery.of(context).size.width / 9;
     return BlocProvider(
-      create: (context) => TodayWeatherCubit(city)..init(),
+      create: (context) => TodayWeatherCubit()..loadWeather(city),
       child: BlocBuilder<TodayWeatherCubit, TodayWeatherState>(
         builder: (context, state) {
           return Scaffold(
@@ -45,7 +45,8 @@ class TodayWeatherScreen extends StatelessWidget {
                             ),
                           );
                         },
-                        icon: Assets.icons.iconTransition.svg(color: Colors.white))
+                        icon: Assets.icons.iconTransition
+                            .svg(color: Colors.white))
                     : const SizedBox(),
               ],
             ),
@@ -57,7 +58,8 @@ class TodayWeatherScreen extends StatelessWidget {
                     ),
                   )
                 : Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
                     child: Column(
                       children: [
                         Text(
@@ -74,7 +76,8 @@ class TodayWeatherScreen extends StatelessWidget {
                           style: AppTextStyle.normalW300S60,
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 30.w,vertical: 20.h),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 30.w, vertical: 20.h),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [

@@ -4,7 +4,6 @@ import 'package:intl/intl.dart';
 import 'package:weather_app/common_components/text_styles/app_text_styles.dart';
 import 'package:weather_app/features/three_days_weather_page/entity/three_days_weather_entity.dart';
 
-import '../../../../common_components/line.dart';
 import '../../../../gen/assets.gen.dart';
 
 class WeatherContainer extends StatelessWidget {
@@ -23,124 +22,138 @@ class WeatherContainer extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: Container(
-        height: 290.h,
+        //вычитаем для отступов
+        height: MediaQuery.of(context).size.height / 2 - 48.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30.r),
           color: Colors.blue,
         ),
         child: Column(
           children: [
-            SizedBox(height: 10.h),
-            Text(
-              DateFormat.yMMMd().format(_date),
-              style: AppTextStyle.normalW300S18,
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 10.h),
+              child: Text(
+                DateFormat.yMMMd().format(_date),
+                style: AppTextStyle.normalW400S18,
+              ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 10.h),
+              padding: EdgeInsets.symmetric(vertical: 6.h, horizontal: 36.w),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 6.h, left: 10.w, right: 20.h),
-                    child: Text(
-                      "${entity.tempDay}°C",
-                      style: AppTextStyle.normalW300S30,
-                    ),
+                  Text(
+                    "${entity.tempDay}°C",
+                    style: AppTextStyle.normalW300S30,
                   ),
                   Text(
                     "${entity.weatherMain}\n${entity.weatherDescription}",
-                    style: AppTextStyle.normalW300S14,
+                    maxLines: 4,
+                    style: AppTextStyle.normalW400S16,
                     textAlign: TextAlign.center,
                   ),
                 ],
               ),
             ),
-            const Line(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Assets.icons.iconWind.svg(width: 40.w, height: 40.h),
-                        SizedBox(width: 10.w),
-                        Text(
-                          "Wind\n${entity.windSpeed} m/c",
-                          style: AppTextStyle.normalW300S14,
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 10.h),
-                    Row(
-                      children: [
-                        Assets.icons.iconPreassure.svg(width: 40.w, height: 40.h),
-                        SizedBox(width: 10.w),
-                        Text(
-                          "Pressure\n${entity.pressure} mBar",
-                          style: AppTextStyle.normalW300S14,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                SizedBox(width: 20.w),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Assets.icons.iconRain.svg(width: 40.w, height: 40.h),
-                        SizedBox(width: 10.w),
-                        Text(
-                          "Rain\n${entity.pop}%",
-                          style: AppTextStyle.normalW300S14,
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 10.h),
-                    Row(
-                      children: [
-                        Assets.icons.iconDrop.svg(
-                          width: 40.w,
-                          height: 40.h,
-                          color: Colors.white,
-                        ),
-                        SizedBox(width: 10.w),
-                        Text(
-                          "Humidity\n${entity.humidity}%",
-                          style: AppTextStyle.normalW300S14,
-                        ),
-                      ],
-                    ),
-                  ],
-                )
-              ],
+            Divider(
+              thickness: 2.h,
+              color: Colors.white,
+              endIndent: 20.w,
+              indent: 20.w,
             ),
-            const Line(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Morn\n${entity.tempMorn}\n${entity.feelsMorn}',
-                  style: AppTextStyle.normalW300S14,
-                ),
-                SizedBox(width: 30.w),
-                Text(
-                  'Day\n${entity.tempDay}\n${entity.feelsDay}',
-                  style: AppTextStyle.normalW300S14,
-                ),
-                SizedBox(width: 30.w),
-                Text(
-                  'Eve\n${entity.tempEve}\n${entity.feelsEve}',
-                  style: AppTextStyle.normalW300S14,
-                ),
-                SizedBox(width: 30.w),
-                Text(
-                  'Nigt\n${entity.tempNight}\n${entity.feelsNight}',
-                  style: AppTextStyle.normalW300S14,
-                ),
-              ],
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 28.h),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Assets.icons.iconRain.svg(width: 40.w, height: 40.h),
+                          SizedBox(width: 10.w),
+                          Text(
+                            "Wind\n${entity.windSpeed} m/c",
+                            style: AppTextStyle.normalW300S14,
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 10.h),
+                      Row(
+                        children: [
+                          Assets.icons.iconDrop.svg(
+                            width: 40.w,
+                            height: 40.h,
+                            color: Colors.white,
+                          ),
+                          SizedBox(width: 10.w),
+                          Text(
+                            "Rain\n${entity.pop}%",
+                            style: AppTextStyle.normalW300S14,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Assets.icons.iconWind.svg(width: 40.w, height: 40.h),
+                          SizedBox(width: 10.w),
+                          Text(
+                            "Pressure\n${entity.pressure} mB",
+                            style: AppTextStyle.normalW300S14,
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 10.h),
+                      Row(
+                        children: [
+                          Assets.icons.iconPreassure.svg(width: 40.w, height: 40.h),
+                          SizedBox(width: 10.w),
+                          Text(
+                            "Humidity\n${entity.humidity}%",
+                            style: AppTextStyle.normalW300S14,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Divider(
+              thickness: 2.h,
+              color: Colors.white,
+              endIndent: 20.w,
+              indent: 20.w,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 34.w),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Morn\n${entity.tempMorn}°C\n${entity.feelsMorn}°C',
+                    style: AppTextStyle.normalW300S14,
+                  ),
+                  Text(
+                    'Day\n${entity.tempDay}°C\n${entity.feelsDay}°C',
+                    style: AppTextStyle.normalW300S14,
+                  ),
+                  Text(
+                    'Eve\n${entity.tempEve}°C\n${entity.feelsEve}°C',
+                    style: AppTextStyle.normalW300S14,
+                  ),
+                  Text(
+                    'Night\n${entity.tempNight}°C\n${entity.feelsNight}°C',
+                    style: AppTextStyle.normalW300S14,
+                  ),
+                ],
+              ),
             ),
           ],
         ),

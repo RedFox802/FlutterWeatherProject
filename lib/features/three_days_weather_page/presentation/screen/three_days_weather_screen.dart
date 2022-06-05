@@ -25,63 +25,54 @@ class ThreeDaysWeatherScreen extends StatelessWidget {
       child: BlocBuilder<WeatherListCubit, WeatherListState>(
         builder: (context, state) {
           return Scaffold(
-            appBar: const DefaultAppBar(
-              titleText: 'Next three days',
-            ),
-            body: state.loading
+            appBar: const DefaultAppBar(titleText: 'Next three days'),
+            body: state.loading || state.error
                 ? Center(
                     child: Text(
-                      "Please waiting...",
+                      state.error ? "Server error..." : "Please waiting...",
                       style: AppTextStyle.normalW300S30
                           .copyWith(color: Colors.black),
                     ),
                   )
-                : state.error
-                    ? Center(
-                        child: Text(
-                          "Server error...",
-                          style: AppTextStyle.normalW300S30
-                              .copyWith(color: Colors.black),
-                        ),
-                      )
-                    : Builder(builder: (context) {
-                        int _index = 1;
-                        double _first = state.weatherList[1].tempDay;
-                        double _current;
-                        for (int i = 2; i < 4; i++) {
-                          _current = state.weatherList[i].tempDay;
-                          if (_current < _first) {
-                            _first = _current;
-                            _index = i;
-                          }
+                : Builder(
+                    builder: (context) {
+                      //вычисляем самый холодный день
+                      int _index = 1;
+                      int _first = state.weatherList[1].tempDay;
+                      int _current;
+                      for (int i = 2; i < 4; i++) {
+                        _current = state.weatherList[i].tempDay;
+                        if (_current < _first) {
+                          _first = _current;
+                          _index = i;
                         }
-                        return Stack(
-                          children: [
-                            ListView(
-                              children: [
-                                SizedBox(height: 8.h),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 6.h),
-                                  child: WeatherContainer(
-                                    day: _index,
-                                    entity: state.weatherList[_index],
-                                  ),
-                                ),
-                                for (int i = 1; i < 4; i++)
-                                  if (i != _index)
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 6.h),
-                                      child: WeatherContainer(
-                                        day: i,
-                                        entity: state.weatherList[i],
-                                      ),
+                      }
+                      return Stack(
+                        children: [
+                          ListView(
+                            children: [
+                              SizedBox(height: 8.h),
+                              //выводится сначала самый холодный день
+                              WeatherContainer(
+                                day: _index,
+                                entity: state.weatherList[_index],
+                              ),
+                              for (int i = 1; i < 4; i++)
+                                if (i != _index)
+                                  Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(vertical: 6.h),
+                                    child: WeatherContainer(
+                                      day: i,
+                                      entity: state.weatherList[i],
                                     ),
-                              ],
-                            ),
-                          ],
-                        );
-                      }),
+                                  ),
+                            ],
+                          ),
+                        ],
+                      );
+                    },
+                  ),
           );
         },
       ),

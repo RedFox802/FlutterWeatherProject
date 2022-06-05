@@ -21,17 +21,17 @@ ThreeDaysWeatherEntity _$ThreeDaysWeatherEntityFromJson(
 
 /// @nodoc
 mixin _$ThreeDaysWeatherEntity {
-  double get tempDay => throw _privateConstructorUsedError;
-  double get tempNight => throw _privateConstructorUsedError;
-  double get tempEve => throw _privateConstructorUsedError;
-  double get tempMorn => throw _privateConstructorUsedError;
-  double get feelsDay => throw _privateConstructorUsedError;
-  double get feelsNight => throw _privateConstructorUsedError;
-  double get feelsEve => throw _privateConstructorUsedError;
-  double get feelsMorn => throw _privateConstructorUsedError;
+  int get tempDay => throw _privateConstructorUsedError;
+  int get tempNight => throw _privateConstructorUsedError;
+  int get tempEve => throw _privateConstructorUsedError;
+  int get tempMorn => throw _privateConstructorUsedError;
+  int get feelsDay => throw _privateConstructorUsedError;
+  int get feelsNight => throw _privateConstructorUsedError;
+  int get feelsEve => throw _privateConstructorUsedError;
+  int get feelsMorn => throw _privateConstructorUsedError;
   String get weatherMain => throw _privateConstructorUsedError;
   String get weatherDescription => throw _privateConstructorUsedError;
-  double get windSpeed => throw _privateConstructorUsedError;
+  int get windSpeed => throw _privateConstructorUsedError;
   int get pressure => throw _privateConstructorUsedError;
   int get humidity => throw _privateConstructorUsedError;
   double get pop => throw _privateConstructorUsedError;
@@ -48,17 +48,17 @@ abstract class $ThreeDaysWeatherEntityCopyWith<$Res> {
           $Res Function(ThreeDaysWeatherEntity) then) =
       _$ThreeDaysWeatherEntityCopyWithImpl<$Res>;
   $Res call(
-      {double tempDay,
-      double tempNight,
-      double tempEve,
-      double tempMorn,
-      double feelsDay,
-      double feelsNight,
-      double feelsEve,
-      double feelsMorn,
+      {int tempDay,
+      int tempNight,
+      int tempEve,
+      int tempMorn,
+      int feelsDay,
+      int feelsNight,
+      int feelsEve,
+      int feelsMorn,
       String weatherMain,
       String weatherDescription,
-      double windSpeed,
+      int windSpeed,
       int pressure,
       int humidity,
       double pop});
@@ -94,35 +94,35 @@ class _$ThreeDaysWeatherEntityCopyWithImpl<$Res>
       tempDay: tempDay == freezed
           ? _value.tempDay
           : tempDay // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       tempNight: tempNight == freezed
           ? _value.tempNight
           : tempNight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       tempEve: tempEve == freezed
           ? _value.tempEve
           : tempEve // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       tempMorn: tempMorn == freezed
           ? _value.tempMorn
           : tempMorn // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       feelsDay: feelsDay == freezed
           ? _value.feelsDay
           : feelsDay // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       feelsNight: feelsNight == freezed
           ? _value.feelsNight
           : feelsNight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       feelsEve: feelsEve == freezed
           ? _value.feelsEve
           : feelsEve // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       feelsMorn: feelsMorn == freezed
           ? _value.feelsMorn
           : feelsMorn // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       weatherMain: weatherMain == freezed
           ? _value.weatherMain
           : weatherMain // ignore: cast_nullable_to_non_nullable
@@ -134,7 +134,7 @@ class _$ThreeDaysWeatherEntityCopyWithImpl<$Res>
       windSpeed: windSpeed == freezed
           ? _value.windSpeed
           : windSpeed // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       pressure: pressure == freezed
           ? _value.pressure
           : pressure // ignore: cast_nullable_to_non_nullable
@@ -159,17 +159,17 @@ abstract class _$$_ThreeDaysWeatherEntityCopyWith<$Res>
       __$$_ThreeDaysWeatherEntityCopyWithImpl<$Res>;
   @override
   $Res call(
-      {double tempDay,
-      double tempNight,
-      double tempEve,
-      double tempMorn,
-      double feelsDay,
-      double feelsNight,
-      double feelsEve,
-      double feelsMorn,
+      {int tempDay,
+      int tempNight,
+      int tempEve,
+      int tempMorn,
+      int feelsDay,
+      int feelsNight,
+      int feelsEve,
+      int feelsMorn,
       String weatherMain,
       String weatherDescription,
-      double windSpeed,
+      int windSpeed,
       int pressure,
       int humidity,
       double pop});
@@ -208,35 +208,35 @@ class __$$_ThreeDaysWeatherEntityCopyWithImpl<$Res>
       tempDay: tempDay == freezed
           ? _value.tempDay
           : tempDay // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       tempNight: tempNight == freezed
           ? _value.tempNight
           : tempNight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       tempEve: tempEve == freezed
           ? _value.tempEve
           : tempEve // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       tempMorn: tempMorn == freezed
           ? _value.tempMorn
           : tempMorn // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       feelsDay: feelsDay == freezed
           ? _value.feelsDay
           : feelsDay // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       feelsNight: feelsNight == freezed
           ? _value.feelsNight
           : feelsNight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       feelsEve: feelsEve == freezed
           ? _value.feelsEve
           : feelsEve // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       feelsMorn: feelsMorn == freezed
           ? _value.feelsMorn
           : feelsMorn // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       weatherMain: weatherMain == freezed
           ? _value.weatherMain
           : weatherMain // ignore: cast_nullable_to_non_nullable
@@ -248,7 +248,7 @@ class __$$_ThreeDaysWeatherEntityCopyWithImpl<$Res>
       windSpeed: windSpeed == freezed
           ? _value.windSpeed
           : windSpeed // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       pressure: pressure == freezed
           ? _value.pressure
           : pressure // ignore: cast_nullable_to_non_nullable
@@ -289,28 +289,28 @@ class _$_ThreeDaysWeatherEntity implements _ThreeDaysWeatherEntity {
 
   @override
   @JsonKey()
-  final double tempDay;
+  final int tempDay;
   @override
   @JsonKey()
-  final double tempNight;
+  final int tempNight;
   @override
   @JsonKey()
-  final double tempEve;
+  final int tempEve;
   @override
   @JsonKey()
-  final double tempMorn;
+  final int tempMorn;
   @override
   @JsonKey()
-  final double feelsDay;
+  final int feelsDay;
   @override
   @JsonKey()
-  final double feelsNight;
+  final int feelsNight;
   @override
   @JsonKey()
-  final double feelsEve;
+  final int feelsEve;
   @override
   @JsonKey()
-  final double feelsMorn;
+  final int feelsMorn;
   @override
   @JsonKey()
   final String weatherMain;
@@ -319,7 +319,7 @@ class _$_ThreeDaysWeatherEntity implements _ThreeDaysWeatherEntity {
   final String weatherDescription;
   @override
   @JsonKey()
-  final double windSpeed;
+  final int windSpeed;
   @override
   @JsonKey()
   final int pressure;
@@ -392,17 +392,17 @@ class _$_ThreeDaysWeatherEntity implements _ThreeDaysWeatherEntity {
 
 abstract class _ThreeDaysWeatherEntity implements ThreeDaysWeatherEntity {
   const factory _ThreeDaysWeatherEntity(
-      {final double tempDay,
-      final double tempNight,
-      final double tempEve,
-      final double tempMorn,
-      final double feelsDay,
-      final double feelsNight,
-      final double feelsEve,
-      final double feelsMorn,
+      {final int tempDay,
+      final int tempNight,
+      final int tempEve,
+      final int tempMorn,
+      final int feelsDay,
+      final int feelsNight,
+      final int feelsEve,
+      final int feelsMorn,
       final String weatherMain,
       final String weatherDescription,
-      final double windSpeed,
+      final int windSpeed,
       final int pressure,
       final int humidity,
       final double pop}) = _$_ThreeDaysWeatherEntity;
@@ -411,27 +411,27 @@ abstract class _ThreeDaysWeatherEntity implements ThreeDaysWeatherEntity {
       _$_ThreeDaysWeatherEntity.fromJson;
 
   @override
-  double get tempDay => throw _privateConstructorUsedError;
+  int get tempDay => throw _privateConstructorUsedError;
   @override
-  double get tempNight => throw _privateConstructorUsedError;
+  int get tempNight => throw _privateConstructorUsedError;
   @override
-  double get tempEve => throw _privateConstructorUsedError;
+  int get tempEve => throw _privateConstructorUsedError;
   @override
-  double get tempMorn => throw _privateConstructorUsedError;
+  int get tempMorn => throw _privateConstructorUsedError;
   @override
-  double get feelsDay => throw _privateConstructorUsedError;
+  int get feelsDay => throw _privateConstructorUsedError;
   @override
-  double get feelsNight => throw _privateConstructorUsedError;
+  int get feelsNight => throw _privateConstructorUsedError;
   @override
-  double get feelsEve => throw _privateConstructorUsedError;
+  int get feelsEve => throw _privateConstructorUsedError;
   @override
-  double get feelsMorn => throw _privateConstructorUsedError;
+  int get feelsMorn => throw _privateConstructorUsedError;
   @override
   String get weatherMain => throw _privateConstructorUsedError;
   @override
   String get weatherDescription => throw _privateConstructorUsedError;
   @override
-  double get windSpeed => throw _privateConstructorUsedError;
+  int get windSpeed => throw _privateConstructorUsedError;
   @override
   int get pressure => throw _privateConstructorUsedError;
   @override

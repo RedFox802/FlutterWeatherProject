@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
               child: Text(
                 'Choose your city',
                 textAlign: TextAlign.center,
-                style: AppTextStyle.normalW300S22,
+                style: AppTextStyle.normalW400S22,
               ),
             ),
             Padding(
@@ -61,7 +61,7 @@ class HomeScreen extends StatelessWidget {
                 },
                 child: Text(
                   "Confirm",
-                  style: AppTextStyle.normalW300S18,
+                  style: AppTextStyle.normalW400S18,
                 ),
               ),
             ),

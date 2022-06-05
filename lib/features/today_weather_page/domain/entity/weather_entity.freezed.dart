@@ -29,13 +29,11 @@ mixin _$WeatherEntity {
   int get clouds => throw _privateConstructorUsedError;
   String get weatherMain => throw _privateConstructorUsedError;
   String get weatherDescription => throw _privateConstructorUsedError;
-  double get windSpeed => throw _privateConstructorUsedError;
-  int get windDeg => throw _privateConstructorUsedError;
-  double get windGust => throw _privateConstructorUsedError;
-  double get temp => throw _privateConstructorUsedError;
-  double get feelsLike => throw _privateConstructorUsedError;
-  double get tempMin => throw _privateConstructorUsedError;
-  double get tempMax => throw _privateConstructorUsedError;
+  int get windSpeed => throw _privateConstructorUsedError;
+  int get temp => throw _privateConstructorUsedError;
+  int get feelsLike => throw _privateConstructorUsedError;
+  int get tempMin => throw _privateConstructorUsedError;
+  int get tempMax => throw _privateConstructorUsedError;
   int get pressure => throw _privateConstructorUsedError;
   int get humidity => throw _privateConstructorUsedError;
 
@@ -60,13 +58,11 @@ abstract class $WeatherEntityCopyWith<$Res> {
       int clouds,
       String weatherMain,
       String weatherDescription,
-      double windSpeed,
-      int windDeg,
-      double windGust,
-      double temp,
-      double feelsLike,
-      double tempMin,
-      double tempMax,
+      int windSpeed,
+      int temp,
+      int feelsLike,
+      int tempMin,
+      int tempMax,
       int pressure,
       int humidity});
 }
@@ -92,8 +88,6 @@ class _$WeatherEntityCopyWithImpl<$Res>
     Object? weatherMain = freezed,
     Object? weatherDescription = freezed,
     Object? windSpeed = freezed,
-    Object? windDeg = freezed,
-    Object? windGust = freezed,
     Object? temp = freezed,
     Object? feelsLike = freezed,
     Object? tempMin = freezed,
@@ -141,31 +135,23 @@ class _$WeatherEntityCopyWithImpl<$Res>
       windSpeed: windSpeed == freezed
           ? _value.windSpeed
           : windSpeed // ignore: cast_nullable_to_non_nullable
-              as double,
-      windDeg: windDeg == freezed
-          ? _value.windDeg
-          : windDeg // ignore: cast_nullable_to_non_nullable
               as int,
-      windGust: windGust == freezed
-          ? _value.windGust
-          : windGust // ignore: cast_nullable_to_non_nullable
-              as double,
       temp: temp == freezed
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       feelsLike: feelsLike == freezed
           ? _value.feelsLike
           : feelsLike // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       tempMin: tempMin == freezed
           ? _value.tempMin
           : tempMin // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       tempMax: tempMax == freezed
           ? _value.tempMax
           : tempMax // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       pressure: pressure == freezed
           ? _value.pressure
           : pressure // ignore: cast_nullable_to_non_nullable
@@ -195,13 +181,11 @@ abstract class _$$_WeatherEntityCopyWith<$Res>
       int clouds,
       String weatherMain,
       String weatherDescription,
-      double windSpeed,
-      int windDeg,
-      double windGust,
-      double temp,
-      double feelsLike,
-      double tempMin,
-      double tempMax,
+      int windSpeed,
+      int temp,
+      int feelsLike,
+      int tempMin,
+      int tempMax,
       int pressure,
       int humidity});
 }
@@ -229,8 +213,6 @@ class __$$_WeatherEntityCopyWithImpl<$Res>
     Object? weatherMain = freezed,
     Object? weatherDescription = freezed,
     Object? windSpeed = freezed,
-    Object? windDeg = freezed,
-    Object? windGust = freezed,
     Object? temp = freezed,
     Object? feelsLike = freezed,
     Object? tempMin = freezed,
@@ -278,31 +260,23 @@ class __$$_WeatherEntityCopyWithImpl<$Res>
       windSpeed: windSpeed == freezed
           ? _value.windSpeed
           : windSpeed // ignore: cast_nullable_to_non_nullable
-              as double,
-      windDeg: windDeg == freezed
-          ? _value.windDeg
-          : windDeg // ignore: cast_nullable_to_non_nullable
               as int,
-      windGust: windGust == freezed
-          ? _value.windGust
-          : windGust // ignore: cast_nullable_to_non_nullable
-              as double,
       temp: temp == freezed
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       feelsLike: feelsLike == freezed
           ? _value.feelsLike
           : feelsLike // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       tempMin: tempMin == freezed
           ? _value.tempMin
           : tempMin // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       tempMax: tempMax == freezed
           ? _value.tempMax
           : tempMax // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       pressure: pressure == freezed
           ? _value.pressure
           : pressure // ignore: cast_nullable_to_non_nullable
@@ -329,8 +303,6 @@ class _$_WeatherEntity implements _WeatherEntity {
       this.weatherMain = '',
       this.weatherDescription = '',
       this.windSpeed = 0,
-      this.windDeg = 0,
-      this.windGust = 0,
       this.temp = 0,
       this.feelsLike = 0,
       this.tempMin = 0,
@@ -370,25 +342,19 @@ class _$_WeatherEntity implements _WeatherEntity {
   final String weatherDescription;
   @override
   @JsonKey()
-  final double windSpeed;
+  final int windSpeed;
   @override
   @JsonKey()
-  final int windDeg;
+  final int temp;
   @override
   @JsonKey()
-  final double windGust;
+  final int feelsLike;
   @override
   @JsonKey()
-  final double temp;
+  final int tempMin;
   @override
   @JsonKey()
-  final double feelsLike;
-  @override
-  @JsonKey()
-  final double tempMin;
-  @override
-  @JsonKey()
-  final double tempMax;
+  final int tempMax;
   @override
   @JsonKey()
   final int pressure;
@@ -398,7 +364,7 @@ class _$_WeatherEntity implements _WeatherEntity {
 
   @override
   String toString() {
-    return 'WeatherEntity(id: $id, name: $name, lon: $lon, lat: $lat, base: $base, visibility: $visibility, clouds: $clouds, weatherMain: $weatherMain, weatherDescription: $weatherDescription, windSpeed: $windSpeed, windDeg: $windDeg, windGust: $windGust, temp: $temp, feelsLike: $feelsLike, tempMin: $tempMin, tempMax: $tempMax, pressure: $pressure, humidity: $humidity)';
+    return 'WeatherEntity(id: $id, name: $name, lon: $lon, lat: $lat, base: $base, visibility: $visibility, clouds: $clouds, weatherMain: $weatherMain, weatherDescription: $weatherDescription, windSpeed: $windSpeed, temp: $temp, feelsLike: $feelsLike, tempMin: $tempMin, tempMax: $tempMax, pressure: $pressure, humidity: $humidity)';
   }
 
   @override
@@ -419,8 +385,6 @@ class _$_WeatherEntity implements _WeatherEntity {
             const DeepCollectionEquality()
                 .equals(other.weatherDescription, weatherDescription) &&
             const DeepCollectionEquality().equals(other.windSpeed, windSpeed) &&
-            const DeepCollectionEquality().equals(other.windDeg, windDeg) &&
-            const DeepCollectionEquality().equals(other.windGust, windGust) &&
             const DeepCollectionEquality().equals(other.temp, temp) &&
             const DeepCollectionEquality().equals(other.feelsLike, feelsLike) &&
             const DeepCollectionEquality().equals(other.tempMin, tempMin) &&
@@ -443,8 +407,6 @@ class _$_WeatherEntity implements _WeatherEntity {
       const DeepCollectionEquality().hash(weatherMain),
       const DeepCollectionEquality().hash(weatherDescription),
       const DeepCollectionEquality().hash(windSpeed),
-      const DeepCollectionEquality().hash(windDeg),
-      const DeepCollectionEquality().hash(windGust),
       const DeepCollectionEquality().hash(temp),
       const DeepCollectionEquality().hash(feelsLike),
       const DeepCollectionEquality().hash(tempMin),
@@ -474,13 +436,11 @@ abstract class _WeatherEntity implements WeatherEntity {
       final int clouds,
       final String weatherMain,
       final String weatherDescription,
-      final double windSpeed,
-      final int windDeg,
-      final double windGust,
-      final double temp,
-      final double feelsLike,
-      final double tempMin,
-      final double tempMax,
+      final int windSpeed,
+      final int temp,
+      final int feelsLike,
+      final int tempMin,
+      final int tempMax,
       final int pressure,
       final int humidity}) = _$_WeatherEntity;
 
@@ -506,19 +466,15 @@ abstract class _WeatherEntity implements WeatherEntity {
   @override
   String get weatherDescription => throw _privateConstructorUsedError;
   @override
-  double get windSpeed => throw _privateConstructorUsedError;
+  int get windSpeed => throw _privateConstructorUsedError;
   @override
-  int get windDeg => throw _privateConstructorUsedError;
+  int get temp => throw _privateConstructorUsedError;
   @override
-  double get windGust => throw _privateConstructorUsedError;
+  int get feelsLike => throw _privateConstructorUsedError;
   @override
-  double get temp => throw _privateConstructorUsedError;
+  int get tempMin => throw _privateConstructorUsedError;
   @override
-  double get feelsLike => throw _privateConstructorUsedError;
-  @override
-  double get tempMin => throw _privateConstructorUsedError;
-  @override
-  double get tempMax => throw _privateConstructorUsedError;
+  int get tempMax => throw _privateConstructorUsedError;
   @override
   int get pressure => throw _privateConstructorUsedError;
   @override

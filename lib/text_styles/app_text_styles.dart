@@ -39,6 +39,11 @@ class AppTextStyle {
       color: Colors.white
   );
 
+  static final TextStyle normalW300S18 = TextStyle(
+      fontSize: 18.sp,
+      fontWeight: FontWeight.w300,
+      color: Colors.white
+  );
   static final TextStyle normalW500S18 = TextStyle(
       fontSize: 18.sp,
       fontWeight: FontWeight.w500,

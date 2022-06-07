@@ -10,6 +10,7 @@ class ChooseCityState with _$ChooseCityState {
     @Default(false) final bool loading,
     @Default(false) final bool error,
     @Default('') final String city,
+    @Default([]) final List<String> cityList,
   }) = _ChooseCityState;
 
   factory ChooseCityState.fromJson(Map<String, dynamic> json) =>

@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CityStorage {
@@ -8,7 +7,7 @@ class CityStorage {
       final json = sharedPreferences.containsKey('current_city')
           ? sharedPreferences.getString('current_city') ?? ''
           : '';
-      return jsonDecode(json);
+      return json;
     } catch (e) {
       rethrow;
     }
@@ -17,18 +16,30 @@ class CityStorage {
   Future<void> saveCity({required String city}) async {
     try {
       final sharedPreferences = await SharedPreferences.getInstance();
-      final json = jsonEncode(city);
-      await sharedPreferences.setString('current_city', json);
+      await sharedPreferences.setString('current_city', city);
     } catch (e) {
       rethrow;
     }
   }
 
-  Future<void> updateCity({required String city}) async {
+  Future<void> saveCityList({required List<String> cityList}) async {
     try {
       final sharedPreferences = await SharedPreferences.getInstance();
-      final json = jsonEncode(city);
-      await sharedPreferences.setString('current_city', json);
+      await sharedPreferences.setStringList('city_list', cityList);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<List<String>> loadCityList() async {
+    try {
+      final sharedPreferences = await SharedPreferences.getInstance();
+
+      final cityList = sharedPreferences.containsKey('city_list')
+          ? sharedPreferences.getStringList('city_list')
+          : null;
+
+      return cityList ?? [];
     } catch (e) {
       rethrow;
     }

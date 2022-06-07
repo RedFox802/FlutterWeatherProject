@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/common_components/app_bars/default_app_bar.dart';
-import 'package:weather_app/common_components/text_styles/app_text_styles.dart';
 import 'package:weather_app/features/three_days_weather_page/presentation/screen/three_days_weather_screen.dart';
 
 import 'package:intl/intl.dart';
 import '../../../../gen/assets.gen.dart';
+import '../../../../text_styles/app_text_styles.dart';
+import '../../../home_page/presentation/screen/home_screen.dart';
 import '../../domain/state/today_weather_cubit.dart';
 import '../../domain/state/today_weather_state.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,9 +27,24 @@ class TodayWeatherScreen extends StatelessWidget {
         builder: (context, state) {
           return Scaffold(
             backgroundColor: Colors.blue.shade300,
-            appBar: DefaultAppBar(
-              titleText: 'Weather today',
-              action: [
+            appBar: AppBar(
+              title: Text(
+                'Weather today',
+                style: AppTextStyle.normalW400S18,
+              ),
+              centerTitle: true,
+              leading: IconButton(
+                onPressed: () {
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return const HomeScreen();
+                    },
+                  ), (route) => false);
+                },
+                icon: Assets.icons.iconBack
+                    .svg(width: 26.w, height: 26.h, color: Colors.white),
+              ),
+              actions: [
                 !state.error && !state.loading
                     ? IconButton(
                         onPressed: () {
@@ -117,7 +132,6 @@ class TodayWeatherScreen extends StatelessWidget {
                           padding: EdgeInsets.symmetric(
                               vertical: 10.h, horizontal: indent),
                           child: Row(
-                            //mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Assets.icons.iconCloud
                                   .svg(width: 50.w, height: 50.h),
@@ -151,7 +165,6 @@ class TodayWeatherScreen extends StatelessWidget {
                           padding: EdgeInsets.symmetric(
                               vertical: 10.h, horizontal: indent),
                           child: Row(
-                            //mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Assets.icons.iconDrop.svg(
                                   width: 50.w,
@@ -169,7 +182,6 @@ class TodayWeatherScreen extends StatelessWidget {
                           padding: EdgeInsets.symmetric(
                               vertical: 10.h, horizontal: indent),
                           child: Row(
-                            //mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Assets.icons.iconPreassure
                                   .svg(width: 50.w, height: 50.h),
@@ -185,7 +197,6 @@ class TodayWeatherScreen extends StatelessWidget {
                           padding: EdgeInsets.symmetric(
                               vertical: 10.h, horizontal: indent),
                           child: Row(
-                            //mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Assets.icons.iconWind
                                   .svg(width: 50.w, height: 50.h),

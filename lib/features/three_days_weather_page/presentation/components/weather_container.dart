@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
-import 'package:weather_app/common_components/text_styles/app_text_styles.dart';
 import 'package:weather_app/features/three_days_weather_page/entity/three_days_weather_entity.dart';
 
 import '../../../../gen/assets.gen.dart';
+import '../../../../text_styles/app_text_styles.dart';
 
 class WeatherContainer extends StatelessWidget {
   final ThreeDaysWeatherEntity entity;

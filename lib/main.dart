@@ -16,8 +16,9 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<ChooseCityCubit>(
-          create: (_) => ChooseCityCubit()..loadCity(),
+          create: (_) => ChooseCityCubit()..init(),
         ),
+
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 690),
